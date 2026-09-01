@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from routers import notes
 
 app = FastAPI()
 
@@ -6,6 +7,9 @@ app = FastAPI()
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
+
+app.include_router(notes.router)
 
 
 if __name__ == "__main__":
